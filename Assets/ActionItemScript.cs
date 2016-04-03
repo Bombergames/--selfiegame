@@ -6,6 +6,7 @@ public class ActionItemScript : MonoBehaviour {
 	// Use this for initialization
 	public List<actionFunc> funcList = new List<actionFunc>();
 	public List<DoorScript> doorList;
+	public List<RotateMirrorScript> mirrorList;
 
 	void Start () {
 		funcList.Add(new actionFunc(TestActionFunc));
@@ -31,6 +32,10 @@ public class ActionItemScript : MonoBehaviour {
 			foreach(DoorScript d in doorList)
 			{
 				d.Open();
+			}
+			foreach(RotateMirrorScript m in mirrorList)
+			{
+				m.flip();
 			}
 		}
 		else
