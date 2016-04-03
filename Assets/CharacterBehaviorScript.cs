@@ -58,6 +58,7 @@ public class CharacterBehaviorScript : MonoBehaviour {
 					GetComponent<FirstPersonController>().enabled = false;
 					GetComponentInChildren<Camera>().enabled = false;
 					GetComponentInChildren<Light>().enabled = false;
+					GetComponentInChildren<AudioListener>().enabled = false;
 				}
 			}
 
@@ -76,6 +77,7 @@ public class CharacterBehaviorScript : MonoBehaviour {
 		previousCharacter.GetComponent<FirstPersonController>().enabled = true;
 		previousCharacter.GetComponentInChildren<Camera>().enabled = true;
 		previousCharacter.GetComponentInChildren<Light>().enabled = true;
+		previousCharacter.GetComponentInChildren<AudioListener>().enabled = true;
 		Recolor(previousCharacter.GetComponent<CharacterBehaviorScript>().tintColor);
 		Color tempColor = previousCharacter.GetComponent<CharacterBehaviorScript>().tintColor;
 		Debug.Log("previous color is: " + tempColor.r + ", " + tempColor.g + ", " + tempColor.b + "," + tempColor.a);
