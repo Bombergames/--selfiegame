@@ -24,7 +24,7 @@ public class floorButtonScript : MonoBehaviour {
 
 		foreach(disappearingBlock dB in dBList)
 		{
-			dB.Appear();
+			dB.PositiveInput();
 		}
 
 		foreach(DoorScript dS in dSList)
@@ -38,7 +38,8 @@ public class floorButtonScript : MonoBehaviour {
 		anim.SetBool("pressed", false);
 		foreach(disappearingBlock dB in dBList)
 		{
-			dB.Disappear();
+			
+			dB.NegativeInput();
 		}
 
 		foreach(DoorScript dS in dSList)
