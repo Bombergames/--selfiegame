@@ -132,6 +132,21 @@ public class CharacterBehaviorScript : MonoBehaviour {
 		}
 			
 	}
+	/*
+	void OnTriggerStay(Collider coll)
+	{
+		Debug.Log("trigger stay");
+		if (coll.gameObject.GetComponent<ActionItemScript>())
+		{
+			this.actionItem = coll.gameObject.GetComponent<ActionItemScript>();
+		}
+		else if (coll.gameObject.GetComponent<GrabbableItemScript>())
+		{
+			this.grabbableItem = coll.gameObject.GetComponent<GrabbableItemScript>();
+		}
+
+	}
+	*/
 
 	void OnTriggerExit(Collider coll)
 	{	Debug.Log("trigger exit");
