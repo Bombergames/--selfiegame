@@ -4,10 +4,19 @@ using System.Collections;
 public class disappearingBlock : MonoBehaviour {
 
 	// Use this for initialization
+
+	public bool startOn;
 	void Start () {
-	
+		if(startOn)
+		{
+			Appear();
+		}
+		else
+		{
+			Disappear();
+		}
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 	
