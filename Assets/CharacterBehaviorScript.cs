@@ -355,4 +355,11 @@ public class CharacterBehaviorScript : MonoBehaviour {
 			return false;
 		}
 	}
+	/*
+	void Awake()
+	{
+		Recolor(Color.white);
+	}
+	*/
+
 }
