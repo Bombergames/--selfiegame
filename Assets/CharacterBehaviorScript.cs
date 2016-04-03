@@ -23,6 +23,7 @@ public class CharacterBehaviorScript : MonoBehaviour {
 			tintColor.a = WindowScript.WINDOW_ALPHA;
 		}
 		characterCamera = this.GetComponentInChildren<Camera>();
+		this.GetComponentInChildren<CameraScript>().Hide();
 		this.GetComponentInChildren<Renderer>().material.SetColor("_Color", tintColor);
 	}
 	
@@ -66,6 +67,7 @@ public class CharacterBehaviorScript : MonoBehaviour {
 					GetComponentInChildren<Camera>().enabled = false;
 					GetComponentInChildren<Light>().enabled = false;
 					GetComponentInChildren<AudioListener>().enabled = false;
+					GetComponentInChildren<CameraScript>().Show();
 				}
 			}
 
@@ -90,6 +92,7 @@ public class CharacterBehaviorScript : MonoBehaviour {
 			previousCharacter.GetComponentInChildren<Camera>().enabled = true;
 			previousCharacter.GetComponentInChildren<Light>().enabled = true;
 			previousCharacter.GetComponentInChildren<AudioListener>().enabled = true;
+			previousCharacter.GetComponentInChildren<CameraScript>().Hide();
 			Recolor(previousCharacter.GetComponent<CharacterBehaviorScript>().tintColor);
 			Color tempColor = previousCharacter.GetComponent<CharacterBehaviorScript>().tintColor;
 			Debug.Log("previous color is: " + tempColor.r + ", " + tempColor.g + ", " + tempColor.b + "," + tempColor.a);
