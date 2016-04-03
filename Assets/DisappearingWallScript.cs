@@ -21,12 +21,34 @@ public class DisappearingWallScript : MonoBehaviour {
 		{
 			this.GetComponent<Renderer>().enabled = false;
 			this.GetComponent<BoxCollider>().enabled = false;
+			if(GetComponentInChildren<Collider>())
+			{
+				foreach(Renderer r in GetComponentsInChildren<Renderer>())
+				{
+					r.enabled = false;
+				}
+				foreach(Collider c in GetComponentsInChildren<Collider>())
+				{
+					c.enabled = false;
+				}
+			}
 			Debug.Log("new color is wall color");
 		}
 		else
 		{
 			this.GetComponent<Renderer>().enabled = true;
 			this.GetComponent<BoxCollider>().enabled = true;
+			if(GetComponentInChildren<Collider>())
+			{
+				foreach(Renderer r in GetComponentsInChildren<Renderer>())
+				{
+					r.enabled = true;
+				}
+				foreach(Collider c in GetComponentsInChildren<Collider>())
+				{
+					c.enabled = true;
+				}
+			}
 			Debug.Log("new color is not wall color");
 		}
 	}
