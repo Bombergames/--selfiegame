@@ -6,10 +6,12 @@ public class DoorScript : MonoBehaviour {
 	Animator anim;
 	int openHash = Animator.StringToHash("Open");
 	int closeHash = Animator.StringToHash("Close");
-	public AudioClip openSound;
+	public AudioSource speaker;
+
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator>();
+		speaker = this.GetComponent<AudioSource> ();
 	}
 
 	// Update is called once per frame
@@ -20,7 +22,7 @@ public class DoorScript : MonoBehaviour {
 	{
 		anim.SetTrigger(openHash);
 		this.GetComponent<BoxCollider>().enabled = false;
-		new AudioSource().PlayOneShot(openSound);
+		speaker.Play ();
 	}
 
 	public void Close()
