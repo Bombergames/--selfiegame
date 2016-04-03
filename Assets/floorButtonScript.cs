@@ -7,7 +7,6 @@ public class floorButtonScript : MonoBehaviour {
 	int pressHash = Animator.StringToHash("press");
 	public List<disappearingBlock> dBList;
 	public List<DoorScript> dSList;
-	int collCount = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -20,40 +19,32 @@ public class floorButtonScript : MonoBehaviour {
 
 	void OnTriggerEnter(Collider coll)
 	{
-		collCount++;
-		if(collCount == 1)
+		Debug.Log("colliding");
+		anim.SetBool("pressed", true);
+
+		foreach(disappearingBlock dB in dBList)
 		{
-			Debug.Log("colliding");
-			anim.SetBool("pressed", true);
+			dB.PositiveInput();
+		}
 
-			foreach(disappearingBlock dB in dBList)
-			{
-				dB.PositiveInput();
-			}
-
-			foreach(DoorScript dS in dSList)
-			{
-				dS.Open();
-			}
+		foreach(DoorScript dS in dSList)
+		{
+			dS.Open();
 		}
 	}
 
 	void OnTriggerExit(Collider coll)
 	{
-		collCount--;
-		if(collCount == 0)
+		anim.SetBool("pressed", false);
+		foreach(disappearingBlock dB in dBList)
 		{
-			anim.SetBool("pressed", false);
-			foreach(disappearingBlock dB in dBList)
-			{
-				
-				dB.NegativeInput();
-			}
+			
+			dB.NegativeInput();
+		}
 
-			foreach(DoorScript dS in dSList)
-			{
-				dS.Close();
-			}
+		foreach(DoorScript dS in dSList)
+		{
+			dS.Close();
 		}
 	}
 }
