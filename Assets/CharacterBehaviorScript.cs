@@ -14,6 +14,7 @@ public class CharacterBehaviorScript : MonoBehaviour {
 	public Material skyboxMat;
 	ActionItemScript actionItem;
 	GrabbableItemScript grabbableItem;
+	GrabbableItemScript grabbedItem;
 
 	void Start () {
 		if(tintColor == null)
@@ -35,12 +36,17 @@ public class CharacterBehaviorScript : MonoBehaviour {
 				if(grabbableItem != null)
 				{
 					grabbableItem.Grab(characterCamera.transform);
+					grabbedItem = grabbableItem;
 				}
 			}
 
 			if(Input.GetButtonUp("Grab"))
 			{
-					grabbableItem.UnGrab();	
+				if(grabbedItem != null)
+				{
+					grabbedItem.UnGrab();
+					grabbedItem = null;
+				}
 			}
 
 			if(Input.GetButtonDown("Jump"))

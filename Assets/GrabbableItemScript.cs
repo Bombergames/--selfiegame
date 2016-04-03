@@ -22,8 +22,8 @@ public class GrabbableItemScript : MonoBehaviour {
 	public void Grab(Transform t)
 	{
 		this.transform.SetParent(t);
-		this.transform.localPosition = new Vector3(0, -0.2f, 0);
-		this.transform.position += t.rotation * Vector3.forward * 0.8f;
+		//this.transform.localPosition = new Vector3(0, -0.2f, 0);
+		this.transform.position += t.rotation * Vector3.forward * 1f;
 		GetComponentInChildren<Rigidbody>().useGravity = false;
 		beingGrabbed = true;
 		//this.transform.Translate(new Vector3(0, 0, 0));
