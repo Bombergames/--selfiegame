@@ -123,6 +123,11 @@ public class CharacterBehaviorScript : MonoBehaviour {
 		{
 			w.tint(newColor);
 		}
+
+		foreach(DisappearingWallScript dW in FindObjectsOfType<DisappearingWallScript>())
+		{
+			dW.newActiveCharacter(newColor);
+		}
 		//RenderSettings.skybox.SetColor("_Tint", newColor);
 		//RenderSettings.skyboSetColor("_Color",newColor);
 		//RenderSettings.ambientGroundColor = newColor;
