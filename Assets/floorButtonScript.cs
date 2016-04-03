@@ -23,14 +23,7 @@ public class floorButtonScript : MonoBehaviour {
 
 		foreach(disappearingBlock dB in dBList)
 		{
-			if(dB.startOn)
-			{
-				dB.Disappear();
-			}
-			else
-			{
-				dB.Appear();
-			}
+			dB.Appear();
 		}
 	}
 
@@ -39,14 +32,7 @@ public class floorButtonScript : MonoBehaviour {
 		anim.SetBool("pressed", false);
 		foreach(disappearingBlock dB in dBList)
 		{
-			if(dB.startOn)
-			{
-				dB.Appear();
-			}
-			else
-			{
-				dB.Disappear();
-			}
+			dB.Disappear();
 		}
 	}
 }
