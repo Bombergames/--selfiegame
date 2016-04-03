@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityStandardAssets.Characters.FirstPerson;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CharacterBehaviorScript : MonoBehaviour {
 
@@ -72,16 +73,22 @@ public class CharacterBehaviorScript : MonoBehaviour {
 	}
 
 	public void Die()
-	{
-		previousCharacter.GetComponent<CharacterBehaviorScript>().isActiveCharacter = true;
-		previousCharacter.GetComponent<FirstPersonController>().enabled = true;
-		previousCharacter.GetComponentInChildren<Camera>().enabled = true;
-		previousCharacter.GetComponentInChildren<Light>().enabled = true;
-		previousCharacter.GetComponentInChildren<AudioListener>().enabled = true;
-		Recolor(previousCharacter.GetComponent<CharacterBehaviorScript>().tintColor);
-		Color tempColor = previousCharacter.GetComponent<CharacterBehaviorScript>().tintColor;
-		Debug.Log("previous color is: " + tempColor.r + ", " + tempColor.g + ", " + tempColor.b + "," + tempColor.a);
-		Destroy(this.gameObject);
+	{	if(previousCharacter == null)
+		{
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		}
+		else
+		{
+			previousCharacter.GetComponent<CharacterBehaviorScript>().isActiveCharacter = true;
+			previousCharacter.GetComponent<FirstPersonController>().enabled = true;
+			previousCharacter.GetComponentInChildren<Camera>().enabled = true;
+			previousCharacter.GetComponentInChildren<Light>().enabled = true;
+			previousCharacter.GetComponentInChildren<AudioListener>().enabled = true;
+			Recolor(previousCharacter.GetComponent<CharacterBehaviorScript>().tintColor);
+			Color tempColor = previousCharacter.GetComponent<CharacterBehaviorScript>().tintColor;
+			Debug.Log("previous color is: " + tempColor.r + ", " + tempColor.g + ", " + tempColor.b + "," + tempColor.a);
+			Destroy(this.gameObject);
+		}
 	}
 
 	bool Duplicate()
