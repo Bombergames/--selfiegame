@@ -6,6 +6,7 @@ public class floorButtonScript : MonoBehaviour {
 	int idleHash = Animator.StringToHash("idle");
 	int pressHash = Animator.StringToHash("press");
 	public List<disappearingBlock> dBList;
+	public List<DoorScript> dSList;
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +26,11 @@ public class floorButtonScript : MonoBehaviour {
 		{
 			dB.Appear();
 		}
+
+		foreach(DoorScript dS in dSList)
+		{
+			dS.Open();
+		}
 	}
 
 	void OnTriggerExit(Collider coll)
@@ -33,6 +39,11 @@ public class floorButtonScript : MonoBehaviour {
 		foreach(disappearingBlock dB in dBList)
 		{
 			dB.Disappear();
+		}
+
+		foreach(DoorScript dS in dSList)
+		{
+			dS.Close();
 		}
 	}
 }
