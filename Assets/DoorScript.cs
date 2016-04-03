@@ -24,6 +24,6 @@ public class DoorScript : MonoBehaviour {
 	public void Close()
 	{
 		anim.SetTrigger(closeHash);
-		this.GetComponent<BoxCollider>().enabled = false;
+		this.GetComponent<BoxCollider>().enabled = true;
 	}
 }
