@@ -4,14 +4,47 @@ using System.Collections;
 public class disappearingBlock : MonoBehaviour {
 
 	// Use this for initialization
+	public bool startOn;
 	void Start () {
-	
+		if(startOn)
+		{
+			Appear();
+		}
+		else
+		{
+			Disappear();
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
+
+	public void PositiveInput()
+	{
+		if(startOn)
+		{
+			Disappear();
+		}
+		else
+		{
+			Appear();
+		}
+	}
+
+	public void NegativeInput()
+	{
+		if(startOn)
+		{
+			Appear();
+		}
+		else
+		{
+			Disappear();
+		}
+	}
+
 
 	public void Appear()
 	{
